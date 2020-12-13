@@ -1,0 +1,7 @@
+<div style="display: flex; justify-content: space-between; margin: 15px">
+    <h5><a href="#product/${productId}">${name}</a> (${amount})</h5>
+    <div style="display: flex; justify-content: right; flex-wrap: nowrap">
+        <h5 style="margin: 5px">${cost}$</h5>
+        <button class="btn btn-danger" onclick="globalThis.onRemoveItemFromCartClicked(this, ${productId});">Remove</button>
+    </div>
+</div>

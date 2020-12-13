@@ -1,0 +1,213 @@
+{
+  "promos": [
+    {
+      "id": "0",
+      "name": "Black Friday",
+      "short_description": "Grab select implants with a 50% discount",
+      "description": "Don't miss a chance to upgrade your cyberware with a 50% discount for ROSHI eye implants and RFID implants!",
+      "cover": "https://i.ibb.co/QnwRdSX/promo-bg-3.webp",
+      "end_date": "30.11.2020"
+    },
+    {
+      "id": "1",
+      "name": "Don't skip arm day!",
+      "short_description": "Powerful cyberarms at a ludicrous price",
+      "description": "Tear down doors, destroy obstacles on your way to greatness with mighty Gorilla Arms at only a fraction of their price! Don't miss the change to become immensly powerful before the offer ends!",
+      "cover": "https://i.ibb.co/L1H2NJ8/promo-bg-2.webp",
+      "end_date": "31.11.2020"
+    },
+    {
+      "id": "2",
+      "name": "Mass destruction",
+      "short_description": "Wreak havoc on the world with exclusive battle implants",
+      "description": "Wreak havoc on the world with a limited supply of military-grade battle implants. There are no rules for the one who wears them, except for one - don't ask where we got the implants from!",
+      "cover": "https://i.ibb.co/mybm1CG/promo-bg-1.webp",
+      "end_date": "01.12.2020"
+    }
+  ],
+  "categories": [
+    {
+      "id": 0,
+      "name": "Prosthetic limbs",
+      "products": [0, 1, 2]
+    },
+    {
+      "id": 2,
+      "name": "Neural implants",
+      "products": [3, 6, 7, 9]
+    },
+    {
+      "id": 3,
+      "name": "RFID/NFC implants",
+      "products": [4]
+    },
+    {
+      "id": 1,
+      "name": "Exoskeletons",
+      "products": [8]
+    },
+    {
+      "id": 4,
+      "name": "Eye implants",
+      "products": [10, 11, 13]
+    },
+    {
+      "id": 5,
+      "name": "Internal organ enhancements",
+      "products": [12]
+    }
+  ],
+  "products": [
+    {
+      "id": 0,
+      "category": 0,
+      "name": "Gorilla Arms",
+      "manufacturer": "CD Project Red",
+      "description": "Gorilla Arms provide thier user with a powerful way to exercise their strength, destroying obstacles, forcing doors open, and delivering heavy strikes to the enemies.",
+      "image": "https://nightcity.gg/wp-content/uploads/2020/05/Cyberounk-2077-Cyberware-Guide-Gorilla-Arms.jpeg",
+      "price": "1000$",
+      "recommended": true
+    },
+    {
+      "id": 1,
+      "category": 0,
+      "name": "Arasaka Mantis Blades",
+      "manufacturer": "CD Project Red",
+      "description": "The shape of deployed Mantis Blades resembles the forelegs of the mantis, giving them quite a chilling appearance. Mantis Blades is a piercing, slicing, impressively deadly melee weapon.",
+      "image": "https://nightcity.gg/wp-content/uploads/2020/05/Cyberounk-2077-Cyberware-Guide-Mantis-Blades.jpeg",
+      "price": "1500$",
+      "recommended": false
+    },
+    {
+      "id": 2,
+      "category": 0,
+      "name": "Cyberlegs",
+      "manufacturer": "Boston Prosthetics",
+      "description": "Allow for a quicker navigation of the terrain, areas with platforms, or inside buildings. Muffle thie sound emitted while walking to aid in stealth.",
+      "image": "https://i.pinimg.com/originals/f4/49/e5/f449e506c0d5e41cee328c0263425b81.jpg",
+      "price": "980$",
+      "recommended": true
+    },
+    {
+      "id": 3,
+      "category": 2,
+      "name": "Neuralink",
+      "description": "A neural implant that will let you control a computer or mobile device anywhere you go. Micron-scale threads are inserted into areas of the brain that control movement. Each thread contains many electrodes and connects them to an implant, the Link.",
+      "manufacturer": "Neuralink",
+      "image": "https://i.ibb.co/28pHCQM/neuralink.jpg",
+      "price": "5000$",
+      "recommended": true
+    },
+    {
+      "id": 4,
+      "category": 3,
+      "name": "flexDF NFC Chip",
+      "description": "The flexDF is one of the next generation, high performance, RFID and NFC compliant transponders. The flexDF is coated in USP Class VI, ISO 10993 tested biopolymer which gives it an extremely thin profile and semi-flexible structure suitable for installation just about anywhere. The DESFire EV1 8kB NFC Type 4 multi-application chip inside the flexDF allows large, cryptographically secured data storage. They are shipped in small sealed plastic tubes with chlorhexidine solution.",
+      "manufacturer": "Dangerous Things",
+      "image": "https://bit.ly/39E238y",
+      "price": "119$",
+      "recommended": true
+    },
+    {
+      "id": 5,
+      "category": 3,
+      "name": "NFC Chip Implant X3",
+      "description": "The NFC Set X3 Elite contains an NFC chip implant of the type ISO 14443 / Classic compatible. This is set in a biocompatible protective cover of the brand SCHOTT and measures a total of 2mm x 12mm. The injection needle containing the chipset will be shipped in sterile protective packaging. This Elite version is not a NXP chipset like the X2, but with this version it is possible to clone other chips. If you already own an RFID / NFC card or Tag in Classic format, this existing chipset can be copied to the NFC implant (UID Changeable Sector 0 and 1).",
+      "manufacturer": "I am ROBOT",
+      "image": "https://chip-implants.com/wp-content/uploads/2012/09/NFC_Implantat_bleistift-klein_Produktbild.jpg",
+      "price": "139$",
+      "recommended": false
+    },
+    {
+      "id": 6,
+      "category": 2,
+      "name": "Stentrode",
+      "description": "Control exoskeletons with the power of your mind! The device picks up electrical signals and sends them through wires that go through the neck to a transmitter implanted on chest muscle under the skin. The wireless transmitter’s signals are read through the skin, then decoded using sophisticated software, and used to control an exoskeleton.",
+      "manufacturer": "Neural Cyberware",
+      "image": "https://i.ibb.co/K95j9Vk/Screenshot-756.png",
+      "price": "499$",
+      "recommended": false
+    },
+    {
+      "id": 7,
+      "category": 2,
+      "name": "Nanowire mesh",
+      "description": "Tiny electronic meshes can be injected directly into the brain and can provide control of prosthetic limbs, repair brain damage, or make artificial eyes.",
+      "manufacturer": "Neural Cyberware",
+      "image": "https://spectrum.ieee.org/image/MjY0Mzk5Mw.jpeg",
+      "price": "439$",
+      "recommended": false
+    },
+    {
+      "id": 8,
+      "category": 1,
+      "name": "UAF battle exoskeleton",
+      "description": "Exclusive battle exoskeleton developed by Ukraine's Armed Forces. Armed with flamethrowers and laser guns. The exoskeleton is equipped with various vision accessories to assist in identifying threats. Helps move faster and carry more while reducing overall fatigue.",
+      "manufacturer": "The Armed Forces of Ukraine",
+      "image": "https://i.ibb.co/N161zPb/Community-wall-photos.jpg",
+      "price": "29999$",
+      "recommended": false
+    },
+    {
+      "id": 9,
+      "category": 2,
+      "name": "Personal Deflection Field",
+      "description": "Personal electromagnetic defense shield protecting its user from hazardous electromagnetic radiation. An absolute necessity in areas polluted by electromagnetic radiation, such as big cities.",
+      "manufacturer": "Geometrieva",
+      "image": "https://i.ibb.co/0G1t7sj/implant.jpg",
+      "price": "299$",
+      "recommended": false
+    },
+    {
+      "id": 10,
+      "category": 4,
+      "name": "ROSHI Eye Implant",
+      "description": "Always be aware of the status of all your implants and cyberware! ROSHI Eye Implant adds informative overlays to the visual input from your biological eyes. Integrates with Stentrode or Nanowire mesh to stream visual data right into your brain.",
+      "manufacturer": "ROSHI",
+      "image": "https://bit.ly/3qonOPG",
+      "price": "659$",
+      "recommended": false
+    },
+    {
+      "id": 11,
+      "category": 4,
+      "name": "TPaulino Bionic Eye",
+      "description": "Provides clear vision with zooming and thermal imaging built right into your eyes! Integrates with Stentrode or Nanowire mesh to stream visual data right into your brain.",
+      "manufacturer": "ROSHI",
+      "image": "https://bit.ly/33E7mkB",
+      "price": "879$",
+      "recommended": false
+    },
+    {
+      "id": 12,
+      "category": 5,
+      "name": "Synlungs",
+      "description": "Synlungs are mechanic lungs that provide vastly improved lung capacity and air filtering capabilities compared to biological lungs. Ideal for people who constantly endure rigorous physical activity and/or are constantly exposed to hazardous air pollutants.",
+      "manufacturer": "Buyourobot",
+      "image": "https://bit.ly/2I3wWrp",
+      "price": "8799$",
+      "recommended": false
+    },
+    {
+      "id": 13,
+      "category": 4,
+      "name": "Kiroshi Optical Scanner Mk. 1",
+      "description": "Scan your surroundings to identify weak points in enemies, machines, vehicles, analyze objects you encounter on your way with Kiroshi Optical Scanner Mk. 1. Integrates with Stentrode or Nanowire mesh to deliver visual overlays right into your brain!",
+      "manufacturer": "Kiroshi Optics",
+      "image": "https://bit.ly/3lz3AyZ",
+      "price": "799$",
+      "recommended": false
+    },
+    {
+      "id": 14,
+      "category": 1,
+      "name": "EXo Linear Frame Mk. 3",
+      "description": "Exo Linear Frame Mk. 3 is the third generation of a powered exoskeleton by Figini, supporting its wearer's spine and providing additional force when lifting and carrying heavy objects. The exoskeleton is made out of armored metal, protecing from bullets and lasers. The visual module provides information overlays abou the status of the exoskeleton while protecting eyes from laser radiation.",
+      "manufacturer": "Figini",
+      "image": "https://bit.ly/39DnTsQ",
+      "price": "19999$",
+      "recommended": false
+    }
+  ],
+  "orders": []
+}

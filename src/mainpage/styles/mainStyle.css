@@ -1,0 +1,9 @@
+.carousel-caption {
+    text-align: center;
+}
+
+.carousel-promo-title, .carousel-promo-text {
+    background-color: black;
+    width: fit-content;
+    margin-bottom: 1vw;
+}
