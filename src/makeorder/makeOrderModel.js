@@ -1,4 +1,4 @@
-import {API_URL} from "../index";
+import {API_URL} from '../index';
 
 export default async function postOrder(data) {
     return fetch(API_URL + 'orders', {

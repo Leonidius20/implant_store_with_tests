@@ -1,7 +1,7 @@
-import render from "./mainView";
-import {getFeaturedItems, getPromos} from "./mainModel";
-import ErrorController from "../errorpage/errorController";
-import {hideLoader} from "../loader/loader";
+import render from './mainView';
+import {getFeaturedItems, getPromos} from './mainModel';
+import ErrorController from '../errorpage/errorController';
+import {hideLoader} from '../loader/loader';
 
 export default class MainController {
 

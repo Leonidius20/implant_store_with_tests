@@ -1,8 +1,8 @@
-import render from "./viewOrderView";
-import {setIgnoreHashChange} from "../index";
-import getProduct from "../productpage/productModel";
-import {hideLoader, showLoader} from "../loader/loader";
-import ErrorController from "../errorpage/errorController";
+import render from './viewOrderView';
+import {setIgnoreHashChange} from '../index';
+import getProduct from '../productpage/productModel';
+import {hideLoader, showLoader} from '../loader/loader';
+import ErrorController from '../errorpage/errorController';
 
 export default async function showPage(order) {
     return loadProductNames(order)

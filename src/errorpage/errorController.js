@@ -1,4 +1,4 @@
-import render from "./errorView";
+import render from './errorView';
 
 export default class ErrorController {
 

@@ -1,8 +1,8 @@
-import catalogTemplate from './templates/catalogTemplate.html'
-import categoryTemplate from './templates/categoryTemplate.html'
-import cardTemplate from './templates/productCardTemplate.html'
-import './templates/categoryStyles.css'
-import populateTemplate from "../templater"
+import catalogTemplate from './templates/catalogTemplate.html';
+import categoryTemplate from './templates/categoryTemplate.html';
+import cardTemplate from './templates/productCardTemplate.html';
+import './templates/categoryStyles.css';
+import populateTemplate from '../templater';
 
 export default function render(params) {
     let categories = '';

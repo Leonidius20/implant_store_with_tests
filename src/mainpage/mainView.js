@@ -1,9 +1,9 @@
-import mainTemplate from './templates/mainTemplate.html'
-import carouselItemTemplate from './templates/carouselItemTemplate.html'
-import './styles/mainStyle.css'
-import  '../catalog/templates/categoryStyles.css'
-import featuredItemTemplate from '../catalog/templates/productCardTemplate.html'
-import populateTemplate from "../templater";
+import mainTemplate from './templates/mainTemplate.html';
+import carouselItemTemplate from './templates/carouselItemTemplate.html';
+import './styles/mainStyle.css';
+import  '../catalog/templates/categoryStyles.css';
+import featuredItemTemplate from '../catalog/templates/productCardTemplate.html';
+import populateTemplate from '../templater';
 
 export default function render(params) {
     let carouselItems = '';

@@ -1,7 +1,7 @@
-import render from "./catalogView";
-import ErrorController from "../errorpage/errorController";
-import {hideLoader} from "../loader/loader";
-import {getCategoriesAndProducts} from "./catalogModel";
+import render from './catalogView';
+import ErrorController from '../errorpage/errorController';
+import {hideLoader} from '../loader/loader';
+import {getCategoriesAndProducts} from './catalogModel';
 
 export default class CatalogController {
 

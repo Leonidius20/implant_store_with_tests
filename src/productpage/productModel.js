@@ -1,4 +1,4 @@
-import {API_URL} from "../index";
+import {API_URL} from '../index';
 
 export default async function getProduct(id) {
     return fetch(API_URL + 'products')

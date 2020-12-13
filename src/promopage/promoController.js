@@ -1,7 +1,7 @@
-import render from "./promoView";
-import getPromo from "./promoModel";
-import ErrorController from "../errorpage/errorController";
-import {hideLoader} from "../loader/loader";
+import render from './promoView';
+import getPromo from './promoModel';
+import ErrorController from '../errorpage/errorController';
+import {hideLoader} from '../loader/loader';
 
 export default class PromoController {
 

@@ -1,4 +1,4 @@
-import {API_URL} from "../index";
+import {API_URL} from '../index';
 
 export default async function getPromo(id) {
     return fetch(API_URL + 'promos')
@@ -6,7 +6,7 @@ export default async function getPromo(id) {
             if (!response.ok) {
                 throw new Error(response.statusText);
             }
-            return response.json()
+            return response.json();
         }).then(promos => {
             for (const promo of promos) {
                 if (promo['id'] === id) return promo;

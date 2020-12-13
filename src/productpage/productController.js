@@ -1,7 +1,7 @@
-import ErrorController from "../errorpage/errorController";
-import {hideLoader} from "../loader/loader";
-import render, {hideAmountSelector, updateCartSize} from "./productView";
-import getProduct, {putToCart} from "./productModel";
+import ErrorController from '../errorpage/errorController';
+import {hideLoader} from '../loader/loader';
+import render, {hideAmountSelector, updateCartSize} from './productView';
+import getProduct, {putToCart} from './productModel';
 
 export default function showPage(productId) {
     getProduct(productId).then(product => {

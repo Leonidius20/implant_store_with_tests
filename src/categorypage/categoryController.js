@@ -1,7 +1,7 @@
-import render from "./categoryView";
-import ErrorController from "../errorpage/errorController";
-import {hideLoader} from "../loader/loader";
-import getProducts, {getCategoryName} from "./categoryModel";
+import render from './categoryView';
+import ErrorController from '../errorpage/errorController';
+import {hideLoader} from '../loader/loader';
+import getProducts, {getCategoryName} from './categoryModel';
 
 export default function showPage(categoryId) {
     const namePromise = getCategoryName(categoryId);

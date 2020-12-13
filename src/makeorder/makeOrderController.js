@@ -1,11 +1,11 @@
-import getItemsInCart from "../cartpage/cartModel";
-import getProduct from "../productpage/productModel";
-import render from "./makeOrderView";
-import ErrorController from "../errorpage/errorController";
-import {hideLoader, showLoader} from "../loader/loader";
-import postOrder from "./makeOrderModel";
-import viewOrderController from "../vieworder/viewOrderController";
-import {clearCart} from "../vieworder/viewOrderModel";
+import getItemsInCart from '../cartpage/cartModel';
+import getProduct from '../productpage/productModel';
+import render from './makeOrderView';
+import ErrorController from '../errorpage/errorController';
+import {hideLoader, showLoader} from '../loader/loader';
+import postOrder from './makeOrderModel';
+import viewOrderController from '../vieworder/viewOrderController';
+import {clearCart} from '../vieworder/viewOrderModel';
 
 export default function showPage() {
     loadAndRender()

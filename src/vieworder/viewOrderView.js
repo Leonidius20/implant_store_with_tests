@@ -1,5 +1,5 @@
 import template from './viewOrderTemplate.html';
-import populateTemplate from "../templater";
+import populateTemplate from '../templater';
 
 export default function render({ order, items }) {
     let itemsString = '';

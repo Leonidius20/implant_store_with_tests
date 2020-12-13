@@ -1,8 +1,8 @@
 import pageTemplate from './templates/makeOrderTemplate.html';
 import itemTemplate from './templates/orderItemTemplate.html';
-import populateTemplate from "../templater";
-import {API_URL} from "../index";
-import {submitOrder} from "./makeOrderController";
+import populateTemplate from '../templater';
+import {API_URL} from '../index';
+import {submitOrder} from './makeOrderController';
 
 export default function render({ total, products }) {
     let cartItems = '';

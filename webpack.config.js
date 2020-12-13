@@ -3,7 +3,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack');
 const path = require('path');
 
-const config = {
+module.exports = {
+    entry: './src/index.js',
+
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: './',
+        filename: 'main.js'
+    },
 
     module: {
         rules: [
@@ -22,20 +29,25 @@ const config = {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
             },
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
         ],
     },
-    entry: './src/index.js',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: './',
-        filename: 'main.js'
-    },
+
     devtool: 'inline-source-map',
     devServer: {
-        //contentBase: path.resolve(__dirname, 'dist/'),
-        //publicPath: path.resolve(__dirname, 'dist/'),
-        // hot: true,
+        liveReload: true,
+        hot: true
     },
+
     plugins: [
         new HtmlWebpackPlugin({
             filename: "index.html",
@@ -44,5 +56,3 @@ const config = {
         }),
     ],
 };
-
-module.exports = config;

@@ -1,15 +1,15 @@
-import pageTemplate from './templates/productPageTemplate.html'
-import addToCartTemplate from './templates/addToCartTemplate.html'
-import {inputSpinner} from 'bootstrap-input-spinner'
-import './templates/productPageStyle.css'
-import populateTemplate from "../templater"
-import {addToCart} from "./productController";
-import {isInCart} from "./productModel";
+import pageTemplate from './templates/productPageTemplate.html';
+import addToCartTemplate from './templates/addToCartTemplate.html';
+import {inputSpinner} from 'bootstrap-input-spinner';
+import './templates/productPageStyle.css';
+import populateTemplate from '../templater';
+import {addToCart} from './productController';
+import {isInCart} from './productModel';
 
 export default function render(params) {
     let addToCart;
     if (isInCart(params['id'])) {
-        addToCart = '<p class="text-muted">This item is in the cart.</p>'
+        addToCart = '<p class="text-muted">This item is in the cart.</p>';
     } else {
         addToCart = populateTemplate(addToCartTemplate, params);
     }
@@ -20,8 +20,8 @@ export default function render(params) {
         }, params));
     globalThis.onAddToCartClicked = onAddToCartClicked;
     $('#amount').inputSpinner({
-        groupClass: "amount-selector",
-        buttonsClass: "btn-primary",
+        groupClass: 'amount-selector',
+        buttonsClass: 'btn-primary',
     });
 }
 

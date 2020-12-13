@@ -1,5 +1,5 @@
-import template from './promoTemplate.html'
-import populateTemplate from "../templater";
+import template from './promoTemplate.html';
+import populateTemplate from '../templater';
 
 export default function render(promo) {
     const params = {};

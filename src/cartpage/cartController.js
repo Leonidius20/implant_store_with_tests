@@ -1,8 +1,8 @@
-import getItemsInCart from "./cartModel";
-import getProduct from "../productpage/productModel";
-import render from "./cartView";
-import ErrorController from "../errorpage/errorController";
-import {hideLoader} from "../loader/loader";
+import getItemsInCart from './cartModel';
+import getProduct from '../productpage/productModel';
+import render from './cartView';
+import ErrorController from '../errorpage/errorController';
+import {hideLoader} from '../loader/loader';
 
 export default function showPage() {
     loadAndRender()

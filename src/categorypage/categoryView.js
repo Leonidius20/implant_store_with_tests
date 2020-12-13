@@ -1,7 +1,7 @@
 import template from './categoryTemplate.html';
 import cardTemplate from '../catalog/templates/productCardTemplate.html';
 import '../catalog/templates/categoryStyles.css';
-import populateTemplate from "../templater";
+import populateTemplate from '../templater';
 
 export default function render({ categoryName, products }) {
     let cards = '';
@@ -14,5 +14,5 @@ export default function render({ categoryName, products }) {
         = populateTemplate(template, {
             name: categoryName,
             products: cards,
-    });
+        });
 }

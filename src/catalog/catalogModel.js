@@ -1,4 +1,4 @@
-import {API_URL} from "../index";
+import {API_URL} from '../index';
 
 export async function getCategoriesAndProducts() {
     const categoriesPromise = fetch(API_URL + 'categories')
@@ -6,7 +6,7 @@ export async function getCategoriesAndProducts() {
             if (!response.ok) {
                 throw new Error(response.statusText);
             }
-            return response.json()
+            return response.json();
         });
 
     const productsPromise = fetch(API_URL + 'products')
@@ -14,7 +14,7 @@ export async function getCategoriesAndProducts() {
             if (!response.ok) {
                 throw new Error(response.statusText);
             }
-            return response.json()
+            return response.json();
         });
 
 
@@ -33,5 +33,5 @@ export async function getCategoriesAndProducts() {
                 params.push(category);
             }
             return params;
-    });
+        });
 }

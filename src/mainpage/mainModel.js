@@ -1,4 +1,4 @@
-import { API_URL } from "../index";
+import { API_URL } from '../index';
 
 export async function getPromos() {
     return fetch(API_URL + 'promos')
@@ -16,7 +16,7 @@ export async function getFeaturedItems() {
             if (!response.ok) {
                 throw new Error(response.statusText);
             }
-            return response.json()
+            return response.json();
         }).then(products => {
             return products.filter(product => product['recommended']);
         });

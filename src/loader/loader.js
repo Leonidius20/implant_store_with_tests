@@ -1,5 +1,5 @@
-import html from './loader.html'
-import './loader.css'
+import html from './loader.html';
+import './loader.css';
 
 let loader = null;
 
