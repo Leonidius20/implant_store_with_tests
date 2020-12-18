@@ -22,6 +22,7 @@ window.onload = () => {
     document.getElementById('cart-number-of-items').innerText
         = getCartSize().toString();
 };
+
 window.onhashchange = () => {
     if (!ignoreHashChange) navigate();
 };
@@ -84,6 +85,8 @@ function navigate() {
         break;
     }
     scroll(0, 0);
+
+    // collapsing mobile navbar
     document.getElementById('navbarColor02').classList.remove('show');
 }
 

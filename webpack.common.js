@@ -42,12 +42,6 @@ module.exports = {
         ],
     },
 
-    devtool: 'inline-source-map',
-    devServer: {
-        liveReload: true,
-        hot: true
-    },
-
     plugins: [
         new HtmlWebpackPlugin({
             filename: "index.html",
