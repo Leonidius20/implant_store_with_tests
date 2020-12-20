@@ -1,7 +1,7 @@
 import render from './categoryView';
 import {getCategoryName} from './categoryModel';
 import BaseController from "../base/baseController";
-import {getProducts} from "../dao/products";
+import {getProductsOfCategory} from "../dao/products";
 
 export default class CategoryController extends BaseController {
 
@@ -12,7 +12,7 @@ export default class CategoryController extends BaseController {
 
     supplyData() {
         const namePromise = getCategoryName(this.categoryId);
-        const productsPromise = getProducts(this.categoryId);
+        const productsPromise = getProductsOfCategory(this.categoryId);
 
         return Promise.all([namePromise, productsPromise]).then(values => {
             render({

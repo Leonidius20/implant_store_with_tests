@@ -1,12 +1,12 @@
 import {getItemsInCart} from '../dao/cart';
 import {hideLoader, showLoader} from '../loader/loader';
 import {postOrder} from "../dao/orders";
-import viewOrderController from '../vieworder/viewOrderController';
 import {clearCart} from '../dao/cart';
 import BaseCartListController from "../cartlist/baseCartListController";
 import MakeOrderView from "./makeOrderView";
 import {updateCartSize} from "../index";
 import showErrorScreen from "../errorpage/errorController";
+import ViewOrderController from "../vieworder/viewOrderController";
 
 export default class MakeOrderController extends BaseCartListController {
 
@@ -22,7 +22,7 @@ export default class MakeOrderController extends BaseCartListController {
             .then(order => {
                 clearCart();
                 updateCartSize();
-                return viewOrderController(order);
+                new ViewOrderController(order).showPage();
             }).catch(error => {
                 showErrorScreen(error);
             }).finally(hideLoader);

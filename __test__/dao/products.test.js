@@ -9,7 +9,7 @@ jest.mock('../../src/dao/base', () => {
             { id: 7, recommended: true, category: 1 },
         ])
     };
-})
+});
 
 describe('ProductDao', () => {
 

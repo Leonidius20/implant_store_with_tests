@@ -1,6 +1,7 @@
 import BaseController from "../base/baseController";
 import {getItemsInCart} from "../dao/cart";
 import {getProduct} from "../dao/products";
+import 'regenerator-runtime/runtime';
 
 export default class BaseCartListController extends BaseController {
 

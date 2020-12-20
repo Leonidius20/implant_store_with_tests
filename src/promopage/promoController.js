@@ -1,15 +1,16 @@
 import render from './promoView';
-import getPromo from './promoModel';
-import ErrorController from '../errorpage/errorController';
-import {hideLoader} from '../loader/loader';
+import { getPromo } from '../dao/promos';
+import BaseController from "../base/baseController";
 
-export default class PromoController {
+export default class PromoController extends BaseController {
 
-    showPage(promoId) {
-        getPromo(promoId)
-            .then(promo => render(promo))
-            .catch(error => new ErrorController().showPage(error))
-            .finally(hideLoader);
+    constructor(promoId) {
+        super();
+        this.promoId = promoId;
+    }
+
+    supplyData() {
+        return getPromo(this.promoId).then(promo => render(promo));
     }
 
 }

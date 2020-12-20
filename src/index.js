@@ -11,6 +11,7 @@ import makeOrderController from './makeorder/makeOrderController';
 import { getCartSize } from './dao/cart';
 import ProductController from "./productpage/productController";
 import CartController from "./cartpage/cartController";
+import CategoryController from "./categorypage/categoryController";
 
 let ignoreHashChange = false;
 
@@ -42,7 +43,7 @@ export function navigate() {
         if (id == null) {
             showCatalog();
         } else {
-            categoryController(parseInt(pathAndId[1]));
+            new CategoryController(parseInt(id)).showPage();
         }
         break;
     case 'promo':
@@ -50,7 +51,7 @@ export function navigate() {
         if (id == null) {
             window.location.hash = '';
         } else {
-            new PromoController().showPage(pathAndId[1]);
+            new PromoController(id).showPage();
         }
         break;
     case 'product':

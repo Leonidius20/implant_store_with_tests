@@ -37,7 +37,7 @@ export default class CartView {
 
         element.parentElement.parentElement.remove();
 
-        this.controller.loadAndRender()
+        this.controller.supplyData()
             .catch(error => {
                 new ErrorController().showPage(error);
             });
