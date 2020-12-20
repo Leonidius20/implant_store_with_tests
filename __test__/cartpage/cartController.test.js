@@ -7,8 +7,6 @@ jest.mock('../../src/cartpage/cartView');
 
 jest.mock('../../src/index');
 
-//const mockRemoveFromCart = jest.fn();
-
 jest.mock('../../src/dao/cart', () => {
    return {
        getItemsInCart: () => {
@@ -55,9 +53,22 @@ describe('CartController', () => {
         });
     });
 
-    it('should remove products from cart', () => {
-        new CartController().removeFromCart(1);
+    it('should remove products from cart', async () => {
+        const controller = new CartController();
+        await controller.supplyData();
+
+        controller.removeFromCart(1);
+
         expect(removeFromCart).toHaveBeenCalledWith(1);
         expect(updateCartSize).toHaveBeenCalled();
+        expect(controller.total).toEqual(200);
+        expect(controller.products).toEqual([
+            {
+                name: 'Generic name',
+                amount: 1,
+                cost: 200,
+                productId: 2,
+            }
+        ]);
     });
 });

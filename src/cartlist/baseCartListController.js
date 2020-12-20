@@ -6,8 +6,8 @@ import 'regenerator-runtime/runtime';
 export default class BaseCartListController extends BaseController {
 
     async supplyData() {
-        let total = 0;
-        const products = [];
+        this.total = 0;
+        this.products = [];
         const itemsInCart = getItemsInCart();
         for (const productIdString in itemsInCart) {
             const productId = parseInt(productIdString);
@@ -15,11 +15,11 @@ export default class BaseCartListController extends BaseController {
             const product = await getProduct(productId);
             const price = parseInt(product['price'].substring(0, product['price'].length - 1));
             const cost = price * amount;
-            total += cost;
+            this.total += cost;
             const name = product['name'];
-            products.push({ name, amount, cost, productId });
+            this.products.push({ name, amount, cost, productId });
         }
-        this.view.render({ total, products });
+        this.view.render({ total: this.total, products: this.products });
     }
 
 }

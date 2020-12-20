@@ -1,8 +1,4 @@
-import populateTemplate from '../templater';
-import cartItemTemplate from './templates/cartItemTemplate.html';
-import cartPageTemplate from './templates/cartPageTemplate.html';
-import cartContentTemplate from './templates/cartContentTemplate.html';
-import ErrorController from '../errorpage/errorController';
+import getHtml from "./cartTemplate";
 
 export default class CartView {
 
@@ -10,24 +6,11 @@ export default class CartView {
         this.controller = controller;
     }
 
-    render({total, products}) {
-        if (products.length === 0) {
-            document.getElementById('container').innerHTML
-                = populateTemplate(cartPageTemplate, {
-                cart_content: '<p>There are no items in the cart. You can choose some of our products from the <a href="#catalog">catalog</a>.</p>',
-            });
-        } else {
-            let cartItems = '';
-            for (const product of products) {
-                cartItems += populateTemplate(cartItemTemplate, product);
-            }
+    render(params) {
+        document.getElementById('container').innerHTML
+            = getHtml(params);
 
-            const cart_content = populateTemplate(cartContentTemplate,
-                { total, cartItems });
-
-            document.getElementById('container').innerHTML
-                = populateTemplate(cartPageTemplate, { cart_content });
-
+        if (params.products.length > 0) {
             globalThis.onRemoveItemFromCartClicked = this.onRemoveItemFromCartClicked.bind(this);
         }
     }
@@ -37,10 +20,10 @@ export default class CartView {
 
         element.parentElement.parentElement.remove();
 
-        this.controller.supplyData()
-            .catch(error => {
-                new ErrorController().showPage(error);
-            });
+        this.render({
+            total: this.controller.total,
+            products: this.controller.products
+        });
     }
 
 }

@@ -13,6 +13,9 @@ export default class CartController extends BaseCartListController {
     removeFromCart(productId) {
         removeFromCart(productId);
         updateCartSize();
+        const product = this.products.find(product => product.productId === productId);
+        this.total -= product.cost;
+        this.products.splice(this.products.indexOf(product), 1);
     }
 
 }
