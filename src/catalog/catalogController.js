@@ -1,16 +1,13 @@
 import render from './catalogView';
-import ErrorController from '../errorpage/errorController';
-import {hideLoader} from '../loader/loader';
 import {getCategoriesAndProducts} from './catalogModel';
+import BaseController from "../base/baseController";
 
-export default class CatalogController {
+export default class CatalogController extends BaseController {
 
-    showPage() {
+    supplyData() {
         return getCategoriesAndProducts().then(params => {
             render(params);
-        }).catch(error => {
-            new ErrorController().showPage(error);
-        }).finally(hideLoader);
+        });
     }
 
 }

@@ -1,18 +1,27 @@
-import ErrorController from '../errorpage/errorController';
-import {hideLoader} from '../loader/loader';
-import render, {hideAmountSelector, updateCartSize} from './productView';
-import getProduct, {putToCart} from './productModel';
+import {updateCartSize} from "../index";
+import {getProduct} from "../dao/products";
+import {isInCart, putToCart} from "../dao/cart";
+import BaseController from "../base/baseController";
+import ProductView from "./productView";
 
-export default function showPage(productId) {
-    getProduct(productId).then(product => {
-        render(product);
-    }).catch(error => {
-        new ErrorController().showPage(error);
-    }).finally(hideLoader);
-}
+export default class ProductController extends BaseController {
 
-export function addToCart(productId, amount) {
-    const cartSize = putToCart(productId, amount);
-    updateCartSize(cartSize);
-    hideAmountSelector();
+    constructor(productId) {
+        super();
+        this.productId = productId;
+        this.view = new ProductView(this);
+    }
+
+    supplyData() {
+        return getProduct(this.productId).then(product => {
+            Object.assign(product, {isInCart: isInCart(this.productId)});
+            this.view.render(product);
+        });
+    }
+
+    addToCart(productId, amount) {
+        putToCart(productId, amount);
+        updateCartSize();
+    }
+
 }

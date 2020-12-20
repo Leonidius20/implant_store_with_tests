@@ -1,22 +1,20 @@
 import render from './mainView';
-import {getFeaturedItems, getPromos} from './mainModel';
-import ErrorController from '../errorpage/errorController';
-import {hideLoader} from '../loader/loader';
+import {getFeaturedProducts} from '../dao/products';
+import {getPromos} from '../dao/promos';
+import BaseController from "../base/baseController";
 
-export default class MainController {
+export default class MainController extends BaseController {
 
-    showPage() {
+    supplyData() {
         const promosPromise = getPromos();
-        const featuredPromise = getFeaturedItems();
+        const featuredPromise = getFeaturedProducts();
 
         return Promise.all([promosPromise, featuredPromise]).then(values => {
             render({
                 promos: values[0],
                 featuredItems: values[1],
             });
-        }).catch(error => {
-            new ErrorController().showPage(error);
-        }).finally(hideLoader);
+        });
     }
 
 }

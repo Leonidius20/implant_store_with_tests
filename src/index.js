@@ -6,12 +6,11 @@ import MainController from './mainpage/mainController';
 import CatalogController from './catalog/catalogController';
 import {showLoader} from './loader/loader';
 import PromoController from './promopage/promoController';
-import productController from './productpage/productController';
 import categoryController from './categorypage/categoryController';
-import cartController from './cartpage/cartController';
 import makeOrderController from './makeorder/makeOrderController';
-
-export const API_URL = 'https://my-json-server.typicode.com/Leonidius20/implant_store/';
+import { getCartSize } from './dao/cart';
+import ProductController from "./productpage/productController";
+import CartController from "./cartpage/cartController";
 
 let ignoreHashChange = false;
 
@@ -19,59 +18,53 @@ let ignoreHashChange = false;
 
 window.onload = () => {
     navigate();
-    document.getElementById('cart-number-of-items').innerText
-        = getCartSize().toString();
+    updateCartSize();
 };
 
 window.onhashchange = () => {
     if (!ignoreHashChange) navigate();
 };
 
-function navigate() {
+export function navigate() {
     const hash = window.location.hash.slice(1);
 
     deselectAllNavbarItems();
 
     const pathAndId = hash.split('/');
     const path = pathAndId[0];
+    const id = pathAndId[1];
 
     switch (path) {
     case '':
-        showLoader();
-        new MainController().showPage();
-        selectNavbarItem('nav-item-home');
+        showMainPage();
         break;
     case 'catalog':
-        showLoader();
-        if (pathAndId[1] == null) {
-            new CatalogController().showPage();
-            selectNavbarItem('nav-item-catalog');
+        if (id == null) {
+            showCatalog();
         } else {
             categoryController(parseInt(pathAndId[1]));
         }
         break;
     case 'promo':
         showLoader();
-        if (pathAndId[1] == null) { // no id specified
+        if (id == null) {
             window.location.hash = '';
         } else {
             new PromoController().showPage(pathAndId[1]);
         }
         break;
     case 'product':
-        showLoader();
-        if (pathAndId[1] == null) { // no id specified
+        if (id == null) { // no id specified
             window.location.hash = '';
         } else {
-            productController(parseInt(pathAndId[1]));
+            new ProductController(parseInt(id)).showPage();
         }
         break;
     case 'cart':
-        showLoader();
-        cartController();
+        new CartController().showPage();
         break;
     case 'order':
-        if (pathAndId[1] == null) {
+        if (id == null) {
             if (getCartSize() === 0) {
                 window.location.hash = 'catalog';
             } else {
@@ -90,12 +83,18 @@ function navigate() {
     document.getElementById('navbarColor02').classList.remove('show');
 }
 
-export function setIgnoreHashChange(value) {
-    ignoreHashChange = value;
+export function showMainPage() {
+    new MainController().showPage();
+    selectNavbarItem('nav-item-home');
 }
 
-function getCartSize() {
-    return Object.keys(JSON.parse(window.localStorage.getItem('cart')) || {}).length;
+function showCatalog() {
+    new CatalogController().showPage();
+    selectNavbarItem('nav-item-catalog');
+}
+
+export function setIgnoreHashChange(value) {
+    ignoreHashChange = value;
 }
 
 function deselectAllNavbarItems() {
@@ -107,4 +106,9 @@ function deselectAllNavbarItems() {
 
 function selectNavbarItem(elementId) {
     document.getElementById(elementId).classList.add('active');
+}
+
+export function updateCartSize() {
+    document.getElementById('cart-number-of-items').innerText
+        = getCartSize().toString();
 }

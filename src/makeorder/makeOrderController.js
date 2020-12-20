@@ -1,44 +1,31 @@
-import getItemsInCart from '../cartpage/cartModel';
-import getProduct from '../productpage/productModel';
-import render from './makeOrderView';
-import ErrorController from '../errorpage/errorController';
+import {getItemsInCart} from '../dao/cart';
 import {hideLoader, showLoader} from '../loader/loader';
-import postOrder from './makeOrderModel';
+import {postOrder} from "../dao/orders";
 import viewOrderController from '../vieworder/viewOrderController';
-import {clearCart} from '../vieworder/viewOrderModel';
+import {clearCart} from '../dao/cart';
+import BaseCartListController from "../cartlist/baseCartListController";
+import MakeOrderView from "./makeOrderView";
+import {updateCartSize} from "../index";
+import showErrorScreen from "../errorpage/errorController";
 
-export default function showPage() {
-    loadAndRender()
-        .catch(error => {
-            new ErrorController().showPage(error);
-        }).finally(hideLoader);
-}
+export default class MakeOrderController extends BaseCartListController {
 
-async function loadAndRender() {
-    let total = 0;
-    const products = [];
-    const itemsInCart = getItemsInCart();
-    for (const productIdString in itemsInCart) {
-        const productId = parseInt(productIdString);
-        const amount = itemsInCart[productId];
-        const product = await getProduct(productId);
-        const price = parseInt(product['price'].substring(0, product['price'].length - 1));
-        const cost = price * amount;
-        total += cost;
-        const name = product['name'];
-        products.push({ name, amount, cost, productId });
+    constructor() {
+        super();
+        this.view = new MakeOrderView(this);
     }
-    render({ total, products });
-}
 
-export function submitOrder(data) {
-    showLoader();
-    data['products'] = getItemsInCart();
-    clearCart();
-    postOrder(data)
-        .then(order => {
-            return viewOrderController(order);
-        }).catch(error => {
-            new ErrorController().showPage(error);
-        }).finally(hideLoader);
+    submitOrder(data) {
+        showLoader();
+        data['products'] = getItemsInCart();
+        postOrder(data)
+            .then(order => {
+                clearCart();
+                updateCartSize();
+                return viewOrderController(order);
+            }).catch(error => {
+                showErrorScreen(error);
+            }).finally(hideLoader);
+    }
+
 }

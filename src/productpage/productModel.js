@@ -1,5 +1,6 @@
 import {API_URL} from '../index';
 
+// todo: remove
 export default async function getProduct(id) {
     return fetch(API_URL + 'products')
         .then(response => {
@@ -17,15 +18,3 @@ export default async function getProduct(id) {
         });
 }
 
-export function putToCart(productId, amount) {
-    const cart = JSON.parse(window.localStorage.getItem('cart')) || {};
-    cart[productId] = amount;
-    window.localStorage.setItem('cart', JSON.stringify(cart));
-
-    return Object.keys(cart).length;
-}
-
-export function isInCart(productId) {
-    const cart = JSON.parse(window.localStorage.getItem('cart')) || {};
-    return cart[productId] != null;
-}

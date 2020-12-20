@@ -1,9 +1,5 @@
 import render from './errorView';
 
-export default class ErrorController {
-
-    showPage(error) {
-        render(error.message);
-    }
-
+export default function showErrorScreen(error) {
+    render(error.message);
 }

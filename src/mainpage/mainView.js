@@ -7,6 +7,7 @@ import populateTemplate from '../templater';
 
 export default function render(params) {
     let carouselItems = '';
+    console.log(carouselItemTemplate);
     for (const promo of params['promos']) {
         const item = populateTemplate(carouselItemTemplate, promo);
         carouselItems += item;

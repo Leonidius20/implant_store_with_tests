@@ -1,18 +1,25 @@
 import render from './categoryView';
-import ErrorController from '../errorpage/errorController';
-import {hideLoader} from '../loader/loader';
-import getProducts, {getCategoryName} from './categoryModel';
+import {getCategoryName} from './categoryModel';
+import BaseController from "../base/baseController";
+import {getProducts} from "../dao/products";
 
-export default function showPage(categoryId) {
-    const namePromise = getCategoryName(categoryId);
-    const productsPromise = getProducts(categoryId);
+export default class CategoryController extends BaseController {
 
-    Promise.all([namePromise, productsPromise]).then(values => {
-        render({
-            categoryName: values[0],
-            products: values[1],
+    constructor(categoryId) {
+        super();
+        this.categoryId = categoryId;
+    }
+
+    supplyData() {
+        const namePromise = getCategoryName(this.categoryId);
+        const productsPromise = getProducts(this.categoryId);
+
+        return Promise.all([namePromise, productsPromise]).then(values => {
+            render({
+                categoryName: values[0],
+                products: values[1],
+            });
         });
-    }).catch(error => {
-        new ErrorController().showPage(error);
-    }).finally(hideLoader);
+    }
+
 }

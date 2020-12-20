@@ -1,22 +1,9 @@
-import {API_URL} from '../index';
+import {getCategories} from "../dao/categories";
+import {getProducts} from "../dao/products";
 
 export async function getCategoriesAndProducts() {
-    const categoriesPromise = fetch(API_URL + 'categories')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(response.statusText);
-            }
-            return response.json();
-        });
-
-    const productsPromise = fetch(API_URL + 'products')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(response.statusText);
-            }
-            return response.json();
-        });
-
+    const categoriesPromise = getCategories();
+    const productsPromise = getProducts();
 
     return Promise.all([categoriesPromise, productsPromise])
         .then(results => {
