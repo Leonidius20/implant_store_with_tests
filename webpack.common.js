@@ -1,4 +1,4 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const webpack = require('webpack');
 const path = require('path');
@@ -48,5 +48,11 @@ module.exports = {
             template: "src/assets/index.html",
             meta: {viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no'},
         }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery',
+            Popper: ['popper.js', 'default']
+        })
     ],
 };

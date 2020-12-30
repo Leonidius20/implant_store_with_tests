@@ -9,8 +9,7 @@ export default class BaseCartListController extends BaseController {
         this.total = 0;
         this.products = [];
         const itemsInCart = getItemsInCart();
-        for (const productIdString in itemsInCart) {
-            const productId = parseInt(productIdString);
+        for (const productId in itemsInCart) {
             const amount = itemsInCart[productId];
             const product = await getProduct(productId);
             const price = parseInt(product['price'].substring(0, product['price'].length - 1));

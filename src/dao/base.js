@@ -31,5 +31,8 @@ export function putToLocalStorage(key, data) {
 }
 
 export function getFromLocalStorage(key) {
-    return JSON.parse(window.localStorage.getItem(key)) || {};
+    const parsed = JSON.parse(window.localStorage.getItem(key));
+    if (!parsed) return {};
+    if (parsed === '{}') return {};
+    return parsed;
 }

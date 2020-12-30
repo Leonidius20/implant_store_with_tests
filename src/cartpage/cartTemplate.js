@@ -7,7 +7,7 @@ export default function getHtml({total, products}) {
         ` : `
             ${products.map(product => `
                 <div style="display: flex; justify-content: space-between; margin: 15px">
-                    <h5><a href="#product/${product.productId}">${name}</a> (${product.amount})</h5>
+                    <h5><a href="#product/${product.productId}">${product.name}</a> (${product.amount})</h5>
                     <div style="display: flex; justify-content: right; flex-wrap: nowrap">
                         <h5 style="margin: 5px">${product.cost}$</h5>
                         <button class="btn btn-danger" onclick="globalThis.onRemoveItemFromCartClicked(this, ${product.productId});">Remove</button>

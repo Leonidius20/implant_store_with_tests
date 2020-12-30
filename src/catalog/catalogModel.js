@@ -13,7 +13,7 @@ export async function getCategoriesAndProducts() {
             for (const category of categories) {
                 category['products'] = [];
                 for (const product of products) {
-                    if (product['category'] === category['id']) {
+                    if (product['category'].toString() === category['id'].toString()) {
                         category['products'].push(product);
                     }
                 }

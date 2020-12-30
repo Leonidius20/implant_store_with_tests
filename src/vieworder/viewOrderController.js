@@ -1,5 +1,5 @@
 import render from './viewOrderView';
-import {setIgnoreHashChange} from '../index';
+import {getRouter} from '../index';
 import {getProduct} from '../dao/products';
 import BaseController from "../base/baseController";
 
@@ -15,17 +15,7 @@ export default class ViewOrderController extends BaseController {
             .then(items => {
                 render({ order: this.orderObject, items });
             }).then(() => {
-                setIgnoreHashChange(true);
-                new Promise((resolve => {
-                    setTimeout(() => {
-                        window.location.hash = 'order/' + this.orderObject['id'];
-                        resolve();
-                    }, 0);
-                })).then(() => {
-                    setTimeout(() => {
-                        setIgnoreHashChange(false);
-                    }, 500);
-                });
+                getRouter().changeHashQuietly(`order/${this.orderObject['id']}`)
             });
     }
 

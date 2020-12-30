@@ -5,6 +5,7 @@
   "description": "A model of an online store for biological implants",
   "main": "index.js",
   "dependencies": {
+    "bootstrap": "^4.5.3",
     "bootstrap-input-spinner": "^1.16.8",
     "core-js": "^3.8.1",
     "jquery": "^3.5.1",

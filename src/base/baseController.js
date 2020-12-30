@@ -11,7 +11,7 @@ export default class BaseController {
     }
 
     supplyData() {
-        return Promise.resolve();
+        throw new Error('supplyData() is not implemented');
     }
 
 }
