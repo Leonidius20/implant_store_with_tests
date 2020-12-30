@@ -17,13 +17,14 @@ describe('CartView', () => {
             products: []
         });
 
-        Object.defineProperty(cartView, 'render', {
+        Object.defineProperty(cartView, 'rerender', {
            value: jest.fn()
         });
 
         cartView.onRemoveItemFromCartClicked(button, 1);
 
         expect(outer.remove).toHaveBeenCalled();
+        expect(cartView.rerender).toHaveBeenCalled();
 
     })
 })
