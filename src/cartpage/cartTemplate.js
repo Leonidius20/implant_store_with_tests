@@ -1,4 +1,4 @@
-export default function getHtml({total, products}) {
+export default function getHtml(total, products) {
     return `
     <div class="container">
         <h1>Cart</h1>

@@ -1,4 +1,5 @@
 import render from "../../src/mainpage/mainView";
+import getHtml from "../../src/mainpage/mainTemplate";
 
 describe('MainView', () => {
     document.body.innerHTML = '<div id="container"></div>';
@@ -27,9 +28,12 @@ describe('MainView', () => {
                     price: '300$'
                 }
             ],
-        }
+        };
 
+        const html = getHtml(params);
         render(params);
+
+        expect(document.getElementById('container').innerHTML).toBe(html);
 
         //expect(mockSetter).toHaveBeenCalledWith(populatedTemplate);
     });

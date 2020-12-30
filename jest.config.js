@@ -10,6 +10,7 @@ module.exports = {
     transform: {
         "^.+\\.html?$": '<rootDir>/__test__/utils/htmlLoader.js',
         '\\.js$': 'babel-jest'
-    }
+    },
+    setupFiles: ["<rootDir>/__test__/test_env.js"]
     // transform: { '\\.js$': 'babel-jest', },
 };

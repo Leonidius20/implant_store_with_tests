@@ -1,16 +1,18 @@
 import getHtml from "./cartTemplate";
+import BaseView from "../base/baseView";
 
-export default class CartView {
+export default class CartView extends BaseView {
 
     constructor(controller) {
-        this.controller = controller;
+        super(controller);
     }
 
-    render(params) {
-        document.getElementById('container').innerHTML
-            = getHtml(params);
+    getHtml() {
+        return getHtml(this.controller.total, this.controller.products);
+    }
 
-        if (params.products.length > 0) {
+    postRender() {
+        if (this.controller.products.length > 0) {
             globalThis.onRemoveItemFromCartClicked = this.onRemoveItemFromCartClicked.bind(this);
         }
     }
@@ -20,10 +22,14 @@ export default class CartView {
 
         element.parentElement.parentElement.remove();
 
-        this.render({
-            total: this.controller.total,
-            products: this.controller.products
-        });
+        if (this.controller.products.length === 0) {
+            this.rerender();
+        } else {
+            document.getElementById('total').innerText =
+                `${this.controller.total}$`;
+        }
+
+        this.rerender();
     }
 
 }

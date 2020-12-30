@@ -1,4 +1,4 @@
-export default function getHtml({ promos, featuredItems }) {
+export default function getHtml(promos, featuredItems) {
     return `
 
     <!-- promo slider -->
